@@ -1,4 +1,4 @@
-package com.example.exampleforgraduatework.service;
+package com.example.exampleforgraduatework.service.impl;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

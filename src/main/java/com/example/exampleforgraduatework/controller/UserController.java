@@ -1,18 +1,17 @@
 package com.example.exampleforgraduatework.controller;
 
 
+import com.example.exampleforgraduatework.dto.comment.UpdateImage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-import com.example.exampleforgraduatework.dto.AdsUserDetails;
-import com.example.exampleforgraduatework.dto.NewPassword;
-import com.example.exampleforgraduatework.dto.UpdateUser;
-import com.example.exampleforgraduatework.dto.User;
+import com.example.exampleforgraduatework.dto.*;
 import com.example.exampleforgraduatework.service.UserService;
 
-//@CrossOrigin(value = "http://localhost:3000")
+
 @RestController
+@CrossOrigin(value = "http://localhost:3000")
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
@@ -25,8 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/me")
-    public User getInformation(Authentication authentication) {
-        AdsUserDetails userDetails = (AdsUserDetails) authentication.getPrincipal();
+    public User getInformation() {
         return userService.getInformation();
     }
 
@@ -36,8 +34,8 @@ public class UserController {
     }
 
     @PatchMapping("/me/image")
-    public void updateImage(String image) {
-        userService.UpdateImage(image);
+    public void updateImage(UpdateImage image) {
+        userService.UpdateImage(image.getNewImage());
     }
 
 

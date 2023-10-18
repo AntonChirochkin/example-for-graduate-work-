@@ -1,4 +1,4 @@
-package com.example.exampleforgraduatework.dto;
+package com.example.exampleforgraduatework.dto.ads;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

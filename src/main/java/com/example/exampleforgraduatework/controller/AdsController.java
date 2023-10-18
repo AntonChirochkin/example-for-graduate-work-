@@ -5,10 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import com.example.exampleforgraduatework.dto.AdDTO;
-import com.example.exampleforgraduatework.dto.Ads;
-import com.example.exampleforgraduatework.dto.CreateOrUpdateAd;
-import com.example.exampleforgraduatework.dto.ExtendedAd;
+import com.example.exampleforgraduatework.dto.ads.AdDTO;
+import com.example.exampleforgraduatework.dto.ads.Ads;
+import com.example.exampleforgraduatework.dto.ads.CreateOrUpdateAd;
+import com.example.exampleforgraduatework.dto.ads.ExtendedAd;
 import com.example.exampleforgraduatework.service.AdsService;
 
 import java.util.Arrays;

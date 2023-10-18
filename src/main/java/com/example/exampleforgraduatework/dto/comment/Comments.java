@@ -1,4 +1,4 @@
-package com.example.exampleforgraduatework.dto;
+package com.example.exampleforgraduatework.dto.comment;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ import java.util.List;
 @Data
 public class Comments {
 
-    private int count;
+    private Integer count;
     private List<CommentDTO> results;
 
 }

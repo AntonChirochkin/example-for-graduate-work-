@@ -1,4 +1,4 @@
-package com.example.exampleforgraduatework.service;
+package com.example.exampleforgraduatework.service.impl;
 
 import org.springframework.stereotype.Service;
 import com.example.exampleforgraduatework.dto.NewPassword;

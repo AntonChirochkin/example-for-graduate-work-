@@ -3,12 +3,13 @@ package com.example.exampleforgraduatework.entity;
 import lombok.*;
 import com.example.exampleforgraduatework.dto.Role;
 
+import javax.persistence.Table;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
-@Getter
-// данный класс = entity
+@Table(name = "users")
+//этот класс станет entity
 public class Users {
     private Integer id;
     private String email;
