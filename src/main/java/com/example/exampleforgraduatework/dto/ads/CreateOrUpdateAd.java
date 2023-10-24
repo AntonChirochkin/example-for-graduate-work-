@@ -1,5 +1,6 @@
 package com.example.exampleforgraduatework.dto.ads;
 
+//import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

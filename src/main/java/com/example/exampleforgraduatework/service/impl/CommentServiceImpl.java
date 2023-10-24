@@ -1,9 +1,9 @@
 package com.example.exampleforgraduatework.service.impl;
 
-import org.springframework.stereotype.Service;
 import com.example.exampleforgraduatework.dto.comment.CommentDTO;
 import com.example.exampleforgraduatework.dto.comment.CreateOrUpdateComment;
 import com.example.exampleforgraduatework.service.CommentService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

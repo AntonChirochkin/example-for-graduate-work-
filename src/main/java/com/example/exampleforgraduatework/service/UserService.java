@@ -1,8 +1,8 @@
 package com.example.exampleforgraduatework.service;
 
-import com.example.exampleforgraduatework.dto.NewPassword;
-import com.example.exampleforgraduatework.dto.UpdateUser;
-import com.example.exampleforgraduatework.dto.User;
+import com.example.exampleforgraduatework.dto.user.NewPassword;
+import com.example.exampleforgraduatework.dto.user.UpdateUser;
+import com.example.exampleforgraduatework.dto.user.User;
 
 public interface UserService {
     void updatePassword(NewPassword newPassword);

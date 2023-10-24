@@ -1,12 +1,11 @@
 package com.example.exampleforgraduatework.controller;
 
-
-import com.example.exampleforgraduatework.dto.comment.UpdateImage;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-import com.example.exampleforgraduatework.dto.*;
+import com.example.exampleforgraduatework.dto.user.NewPassword;
+import com.example.exampleforgraduatework.dto.user.UpdateImage;
+import com.example.exampleforgraduatework.dto.user.UpdateUser;
+import com.example.exampleforgraduatework.dto.user.User;
 import com.example.exampleforgraduatework.service.UserService;
 
 

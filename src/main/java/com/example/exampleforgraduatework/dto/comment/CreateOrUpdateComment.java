@@ -1,5 +1,6 @@
 package com.example.exampleforgraduatework.dto.comment;
 
+//import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data

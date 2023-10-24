@@ -1,6 +1,5 @@
 package com.example.exampleforgraduatework.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,20 +36,14 @@ public class Ad {
     @Column(name = "price", nullable = false)
     private int price; //цена объявления
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "image_id")
-    private Image image; //картинка объявления
+    @Column(name = "image")
+    private String image; //  путь к картинке объявления
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private Users user; //id автора объявления
 
     @OneToMany(mappedBy = "ad", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Comment> comments; //комментарии к объявлению
-
-
-
-
-
 
 }

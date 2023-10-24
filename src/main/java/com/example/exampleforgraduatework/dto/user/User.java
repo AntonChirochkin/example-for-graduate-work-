@@ -1,6 +1,8 @@
-package com.example.exampleforgraduatework.dto;
+package com.example.exampleforgraduatework.dto.user;
+
 
 import lombok.*;
+import com.example.exampleforgraduatework.dto.Role;
 import com.example.exampleforgraduatework.entity.Users;
 
 @Data

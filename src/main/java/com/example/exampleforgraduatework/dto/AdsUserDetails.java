@@ -1,4 +1,4 @@
-package com.example.exampleforgraduatework.dto.ads;
+package com.example.exampleforgraduatework.dto;
 
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;

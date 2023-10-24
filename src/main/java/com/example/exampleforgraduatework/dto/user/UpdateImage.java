@@ -1,4 +1,4 @@
-package com.example.exampleforgraduatework.dto.comment;
+package com.example.exampleforgraduatework.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
