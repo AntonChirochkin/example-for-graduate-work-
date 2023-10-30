@@ -1,4 +1,4 @@
-package com.example.exampleforgraduatework.dto;
+package com.example.exampleforgraduatework.dto.user;
 
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
@@ -69,5 +69,6 @@ public class AdsUserDetails implements UserDetails {
         boolean isAdminForUser = user.getRole() == ADMIN;
         return new AdsUserDetails(user.getId(), user.getUsername(), user.getPassword(), isAdminForUser);
     }
+
 
 }

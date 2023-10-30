@@ -1,6 +1,6 @@
 package com.example.exampleforgraduatework.entity;
 
-import jakarta.validation.constraints.*;
+//import jakarta.validation.constraints.*;
 import lombok.*;
 import com.example.exampleforgraduatework.dto.Role;
 import com.example.exampleforgraduatework.dto.comment.CommentDTO;
@@ -15,6 +15,7 @@ import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -29,27 +30,24 @@ public class Users {
 
     private String image;
 
-    @Size(min=4, max=32)
+    //    @Size(min=4, max=32)
     private String username;
 
-    @Size(min=8, max=16)
+    //    @Size(min=8, max=16)
     private String password;
 
-    @Size(min=2, max=16)
+    //    @Size(min=2, max=16)
     private String firstName;
 
-    @Size(min=2, max=16)
+    //    @Size(min=2, max=16)
     private String lastName;
-    @Pattern(regexp = "\\+7\\s?\\(?\\d{3}\\)?\\s?\\d{3}-?\\d{2}-?\\d{2}")
+    //    @Pattern(regexp = "\\+7\\s?\\(?\\d{3}\\)?\\s?\\d{3}-?\\d{2}-?\\d{2}")
     private String phone;
 
+    @Enumerated
     private Role role;
 
-    public Users() {
-
-    }
-
-//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "lot")
-//    private List<Comment> commentList;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "users")
+    private List<Comment> commentList;
 
 }

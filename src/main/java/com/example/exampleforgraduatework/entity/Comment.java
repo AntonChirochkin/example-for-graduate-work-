@@ -1,5 +1,6 @@
 package com.example.exampleforgraduatework.entity;
 
+//import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,8 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_id",nullable = false)
-    Integer pk;
+    private Integer pk;
+//    Марина: добавила private
 
     @ManyToOne  (fetch = FetchType.EAGER)
     @JoinColumn (name = "author_id")
@@ -28,10 +30,12 @@ public class Comment {
     @JoinColumn (name = "ad_id")
     private Ad ad;
 
-    @Column(name = "createdAt", nullable = false)
+    @Column(name = "created_at", nullable = false)
+//            Марина:изменила имя для бд
     LocalDateTime createdAt;
 
     @Column(name = "text", nullable = false)
+//    @Size(min=8, max=64)
     private String text;
 
     @Override
@@ -46,6 +50,4 @@ public class Comment {
     public int hashCode() {
         return Objects.hash(pk, createdAt, text);
     }
-
-
 }
