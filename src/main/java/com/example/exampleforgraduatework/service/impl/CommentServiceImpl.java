@@ -1,9 +1,9 @@
 package com.example.exampleforgraduatework.service.impl;
 
+import org.springframework.stereotype.Service;
 import com.example.exampleforgraduatework.dto.comment.CommentDTO;
 import com.example.exampleforgraduatework.dto.comment.CreateOrUpdateComment;
 import com.example.exampleforgraduatework.service.CommentService;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class CommentServiceImpl implements CommentService {
 
 
     @Override
-    public List<CommentDTO> getComments(Integer adId) {
+    public List<CommentDTO> getAllComments() {
         return null;
     }
 

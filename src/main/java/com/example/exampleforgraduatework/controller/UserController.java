@@ -1,10 +1,14 @@
 package com.example.exampleforgraduatework.controller;
 
+import com.example.exampleforgraduatework.dto.user.NewPassword;
+import com.example.exampleforgraduatework.dto.user.UpdateImage;
+import com.example.exampleforgraduatework.dto.user.UpdateUser;
+import com.example.exampleforgraduatework.dto.user.User;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import com.example.exampleforgraduatework.dto.user.*;
+import com.example.exampleforgraduatework.dto.*;
 import com.example.exampleforgraduatework.service.UserService;
 
 
@@ -17,27 +21,24 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/set_password")
-    public void updatePassword(@RequestBody NewPassword newPassword, Authentication authentication) {
-        AdsUserDetails adsUserDetails = (AdsUserDetails) authentication.getPrincipal();
-        userService.updatePassword(newPassword, adsUserDetails.getId());
+    public void updatePassword(@RequestBody NewPassword newPassword) {
+        userService.updatePassword(newPassword);
     }
 
     @GetMapping("/me")
-    public User getInformation(Authentication authentication) {
-        AdsUserDetails adsUserDetails = (AdsUserDetails) authentication.getPrincipal();
-        return userService.getInformation(adsUserDetails.getId());
+    public User getInformation() {
+        return userService.getInformation();
     }
 
     @PatchMapping("/me")
-    public UpdateUser updateInformationAboutUser(@RequestBody UpdateUser updateUser, Authentication authentication) {
-        AdsUserDetails adsUserDetails = (AdsUserDetails) authentication.getPrincipal();
-        return userService.updateInformationAboutUser(updateUser, adsUserDetails.getId());
+    public UpdateUser updateInformationAboutUser(@RequestBody UpdateUser updateUser) {
+        return userService.updateInformationAboutUser(updateUser);
     }
 
     @PatchMapping("/me/image")
-    public void updateImage(@RequestParam("image") MultipartFile image, Authentication authentication) {
-        AdsUserDetails adsUserDetails = (AdsUserDetails) authentication.getPrincipal();
-        userService.UpdateImage(image, adsUserDetails.getId());
+    public void updateImage(UpdateImage image) {
+        userService.UpdateImage(image.getNewImage());
     }
+
 
 }

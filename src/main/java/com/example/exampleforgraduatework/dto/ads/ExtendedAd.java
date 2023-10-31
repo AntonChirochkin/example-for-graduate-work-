@@ -3,8 +3,6 @@ package com.example.exampleforgraduatework.dto.ads;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.example.exampleforgraduatework.entity.Ad;
-import com.example.exampleforgraduatework.entity.Users;
 
 @Data
 @NoArgsConstructor
@@ -21,18 +19,4 @@ public class ExtendedAd {
     private int price;
     private String title;
 
-    public static ExtendedAd fromAd(Ad ad){
-        ExtendedAd extendedAd = new ExtendedAd();
-        extendedAd.setPk(ad.getPk());
-        extendedAd.setAuthorFirstName(ad.getUser().getFirstName());
-        extendedAd.setAuthorLastName(ad.getUser().getLastName());
-        extendedAd.setDescription(ad.getDescription());
-        extendedAd.setEmail(ad.getUser().getEmail());
-        extendedAd.setPhone(ad.getUser().getPhone());
-        extendedAd.setTitle(ad.getTitle());
-        extendedAd.setPrice(ad.getPrice());
-        extendedAd.setImage(ad.getImage());
-        return extendedAd;
-    }
-    
 }
