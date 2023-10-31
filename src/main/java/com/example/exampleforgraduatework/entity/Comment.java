@@ -20,7 +20,6 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_id",nullable = false)
     private Integer pk;
-//    Марина: добавила private
 
     @ManyToOne  (fetch = FetchType.EAGER)
     @JoinColumn (name = "author_id")
@@ -31,7 +30,7 @@ public class Comment {
     private Ad ad;
 
     @Column(name = "created_at", nullable = false)
-//            Марина:изменила имя для бд
+
     LocalDateTime createdAt;
 
     @Column(name = "text", nullable = false)
@@ -50,4 +49,6 @@ public class Comment {
     public int hashCode() {
         return Objects.hash(pk, createdAt, text);
     }
+
+
 }

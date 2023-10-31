@@ -28,5 +28,4 @@ public class CreateOrUpdateAd {
         ad.setPrice(this.getPrice());
         return ad;
     }
-
 }

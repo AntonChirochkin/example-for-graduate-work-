@@ -40,5 +40,4 @@ public class UserController {
         userService.UpdateImage(image, adsUserDetails.getId());
     }
 
-
 }

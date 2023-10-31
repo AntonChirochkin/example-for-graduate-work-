@@ -34,6 +34,5 @@ public class ExtendedAd {
         extendedAd.setImage(ad.getImage());
         return extendedAd;
     }
-
-
+    
 }
