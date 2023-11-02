@@ -1,22 +1,49 @@
 package com.example.exampleforgraduatework.entity;
 
+//import jakarta.validation.constraints.*;
 import lombok.*;
 import com.example.exampleforgraduatework.dto.Role;
+import com.example.exampleforgraduatework.dto.comment.CommentDTO;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.List;
+
+import javax.persistence.*;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
-//этот класс станет entity
+@Entity
+@Table(name = "users")
+
 public class Users {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String email;
+
     private String image;
+
     private String username;
+
     private String password;
+
     private String firstName;
+
     private String lastName;
+
     private String phone;
+
+    @Enumerated
     private Role role;
+
+//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "users")
+//    private List<Comment> commentList;
+
 }

@@ -6,10 +6,8 @@ import com.example.exampleforgraduatework.dto.user.UpdateUser;
 import com.example.exampleforgraduatework.dto.user.User;
 
 public interface UserService {
-    void updatePassword(NewPassword newPassword);
-    User getInformation();
-    UpdateUser updateInformationAboutUser(UpdateUser updateUser);
-    void UpdateImage(String image);
-
-
+    void updatePassword(NewPassword newPassword, Integer id);
+    User getInformation(Integer id);
+    UpdateUser updateInformationAboutUser(UpdateUser updateUser, Integer id);
+    void UpdateImage(MultipartFile file, Integer id);
 }
