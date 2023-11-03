@@ -1,6 +1,5 @@
 package com.example.exampleforgraduatework.entity;
 
-//import jakarta.validation.constraints.*;
 import lombok.*;
 import com.example.exampleforgraduatework.dto.Role;
 import com.example.exampleforgraduatework.dto.comment.CommentDTO;
@@ -12,6 +11,7 @@ import javax.persistence.Table;
 import java.util.List;
 
 import javax.persistence.*;
+
 
 @Data
 @AllArgsConstructor

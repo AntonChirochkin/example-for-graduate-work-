@@ -38,5 +38,4 @@ public class CommentDTO {
 
         return comment;
     }
-
 }
