@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.exampleforgraduatework.dto.Login;
 import com.example.exampleforgraduatework.dto.Register;
 import com.example.exampleforgraduatework.service.AuthService;
+import javax.validation.Valid;
 
+/**
+ * Класс-контроллер для запуска конечных точек для регистрации и аутентификации пользователей.
+ */
 @Slf4j
 @CrossOrigin(value = "http://localhost:3000")
 @RestController
@@ -20,17 +24,23 @@ public class AuthController {
 
     private final AuthService authService;
 
+    /**
+     * Метод аутентификации пользователя с проверкой входных данных.
+     */
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody Login login) {
+    public ResponseEntity<?> login(@RequestBody @Valid Login login) {
         if (authService.login(login.getUsername(), login.getPassword())) {
             return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
-
+    /**
+     *
+     * Метод регистрации пользователя с проверкой входных данных.
+     */
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody Register register) {
+    public ResponseEntity<?> register(@RequestBody @Valid Register register) {
         if (authService.register(register)) {
             return ResponseEntity.status(HttpStatus.CREATED).build();
         } else {

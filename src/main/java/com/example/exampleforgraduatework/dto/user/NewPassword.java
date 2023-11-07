@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Size;
 
+/**
+ * Класс-оболочка вводит данные для обновления пароля с проверкой.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -2,33 +2,36 @@ package com.example.exampleforgraduatework.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
-import com.example.exampleforgraduatework.dto.comment.CommentDTO;
-import com.example.exampleforgraduatework.dto.comment.Comments;
 import com.example.exampleforgraduatework.entity.Comment;
-
 import java.util.List;
+
+/**
+ * Репозиторий для получения методов для работы с базой данных комментариев.
+ */
 
 @Repository
 public interface CommentRepository extends CrudRepository<Comment, Integer> {
+    @Query(value = "SELECT * FROM comments " +
+            "WHERE ad_id = :AdId",
+            nativeQuery = true)
+    List<Comment> findAllCommentsByAdId(Integer AdId);
 
-//    @Query(value = "SELECT * FROM comments",
-//            nativeQuery = true)
-//    List<Comment> findAllComments();
-//
-//    @Query(value = "SELECT * FROM comments " +
-//            "WHERE author_id= :author",
-//            nativeQuery = true)
-//    List<Comment> findAllCommentByAuthor(Integer author);
-//
-//    @Query(value = "SELECT * FROM comments " +
-//            "WHERE comment_id= :pk",
-//            nativeQuery = true)
-//    Comment findCommentByCommentId(Integer pk);
-//
-//    @Query("SELECT new ru.skypro.homework.dto.comment" +
-//            ".Comments((SELECT COUNT(c.pk) FROM Comment c), " +
-//            "(SELECT * FROM Comment c WHERE c.ad.adId = :adId))")
-//    Comments findCommentsByAdId(Integer adId);
+    @Query(value = "SELECT COUNT(comment_id) FROM comments " +
+            "WHERE ad_id = :AdId",
+            nativeQuery = true)
+    Integer countCommentsByAdId(Integer AdId);
+    @Query(value = "SELECT MAX(comment_id) FROM comments " +
+            "WHERE ad_id = :AdId",
+            nativeQuery = true)
+    Integer findLastCommentId(Integer AdId);
+
+    @Query(value = "SELECT COUNT(ad_id) FROM ads",
+            nativeQuery = true)
+    Integer countAdId();
+
+    @Query(value = "SELECT MAX(ad_id) FROM ads",
+            nativeQuery = true)
+    Integer findLastAdId();
+
 }

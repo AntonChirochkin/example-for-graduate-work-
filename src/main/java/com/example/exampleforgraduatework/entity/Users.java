@@ -2,17 +2,15 @@ package com.example.exampleforgraduatework.entity;
 
 import lombok.*;
 import com.example.exampleforgraduatework.dto.Role;
-import com.example.exampleforgraduatework.dto.comment.CommentDTO;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.List;
-
 import javax.persistence.*;
 
-
+/**
+ * Класс-сущность с пользовательскими данными в базе данных
+ * Дополнительно класс используется при проверке подлинности и авторизации, реализует класс UserDetails.
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,9 +24,9 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String email;
-
-    private String image;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "image_id")
+    private Image image;
 
     private String username;
 
@@ -42,8 +40,5 @@ public class Users {
 
     @Enumerated
     private Role role;
-
-//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "users")
-//    private List<Comment> commentList;
 
 }

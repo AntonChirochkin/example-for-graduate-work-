@@ -2,13 +2,15 @@ package com.example.exampleforgraduatework.filter;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Класс фильтра для добавления заголовков для всех ответов в приложении.
+ */
 @Component
 public class BasicAuthCorsFilter extends OncePerRequestFilter {
 

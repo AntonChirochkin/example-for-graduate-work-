@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.example.exampleforgraduatework.entity.Ad;
-import com.example.exampleforgraduatework.entity.Users;
+import java.util.Optional;
 
 @Data
 @NoArgsConstructor
@@ -27,11 +27,12 @@ public class ExtendedAd {
         extendedAd.setAuthorFirstName(ad.getUser().getFirstName());
         extendedAd.setAuthorLastName(ad.getUser().getLastName());
         extendedAd.setDescription(ad.getDescription());
-        extendedAd.setEmail(ad.getUser().getEmail());
+        extendedAd.setEmail(ad.getUser().getUsername());
         extendedAd.setPhone(ad.getUser().getPhone());
         extendedAd.setTitle(ad.getTitle());
         extendedAd.setPrice(ad.getPrice());
-        extendedAd.setImage(ad.getImage());
+        Optional.ofNullable(ad.getImage()).ifPresent(image -> extendedAd.setImage(
+                "/ads/" + ad.getImage().getId() + "/image"));
         return extendedAd;
     }
 }

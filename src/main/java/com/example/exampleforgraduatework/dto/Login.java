@@ -3,7 +3,9 @@ package com.example.exampleforgraduatework.dto;
 import lombok.Data;
 
 import javax.validation.constraints.Size;
-
+/**
+ * Класс-обёртка с входными данными для входа пользователя в систему с проверкой.
+ */
 @Data
 public class Login {
 

@@ -1,17 +1,21 @@
 package com.example.exampleforgraduatework.service;
 
+import org.springframework.security.core.Authentication;
 import com.example.exampleforgraduatework.dto.comment.CommentDTO;
+import com.example.exampleforgraduatework.dto.comment.Comments;
 import com.example.exampleforgraduatework.dto.comment.CreateOrUpdateComment;
 
-import java.util.List;
+/**
+ * Интерфейс с методами получения, добавления, изменения, удаления комментариев к объявлениям.
+ */
 
 public interface CommentService {
 
-    List<CommentDTO> getComments(Integer adId);
+    Comments getComments(Integer adId, Authentication authentication);
 
-    void addComment(Integer id, CreateOrUpdateComment createOrUpdateComment);
+    CommentDTO addComment(Integer id, CreateOrUpdateComment createOrUpdateComment, Authentication authentication);
 
-    void deleteComment(Integer adId, Integer commentId);
+    void deleteComment(Integer adId, Integer commentId, Authentication authentication);
 
-    void updateComment(Integer adId, Integer commentId);
+    CommentDTO updateComment(Integer adId, Integer commentId,CreateOrUpdateComment createOrUpdateComment, Authentication authentication);
 }

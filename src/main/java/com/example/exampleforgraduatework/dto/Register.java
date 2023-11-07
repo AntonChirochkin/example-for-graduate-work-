@@ -1,10 +1,13 @@
 package com.example.exampleforgraduatework.dto;
 
 import lombok.Data;
-
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+/**
+ *
+ * Класс-обёртка с входными данными для регистрации пользователя с валидацией.
+ */
 @Data
 public class Register {
 

@@ -1,12 +1,9 @@
 package com.example.exampleforgraduatework.entity;
 
-//import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -35,7 +32,6 @@ public class Comment {
     LocalDateTime createdAt;
 
     @Column(name = "text", nullable = false)
-    @Size(min=8, max=64)
     private String text;
 
     @Override
@@ -50,5 +46,4 @@ public class Comment {
     public int hashCode() {
         return Objects.hash(pk, createdAt, text);
     }
-
 }
