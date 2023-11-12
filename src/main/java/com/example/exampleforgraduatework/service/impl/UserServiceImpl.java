@@ -1,6 +1,7 @@
 package com.example.exampleforgraduatework.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,8 +27,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UsersRepository usersRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+
+    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Autowired
     private ImageRepository imageRepository;
@@ -45,6 +46,7 @@ public class UserServiceImpl implements UserService {
             throw new WrongCurrentPasswordException();
         }
     }
+
     /**
      * Способ получения информации об учетной записи пользователя.
      */
@@ -68,7 +70,6 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     *
      * Способ обновления изображения для учетной записи пользователя.
      */
     @Override
@@ -92,6 +93,7 @@ public class UserServiceImpl implements UserService {
         usersRepository.save(users);
         return ImageDTO.fromImage(returnImage);
     }
+
     /**
      * Способ получения изображения для учетной записи пользователя.
      */
@@ -100,4 +102,5 @@ public class UserServiceImpl implements UserService {
         Image image = imageRepository.findById(id).orElseThrow();
         return image.getImage();
     }
+
 }
