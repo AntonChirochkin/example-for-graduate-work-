@@ -18,7 +18,6 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
-
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMultipartHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -32,7 +31,6 @@ import com.example.exampleforgraduatework.entity.Users;
 import com.example.exampleforgraduatework.repository.ImageRepository;
 import com.example.exampleforgraduatework.repository.UsersRepository;
 import com.example.exampleforgraduatework.service.UserService;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -85,7 +83,7 @@ public class UserControllerIntegrationTests {
                 "+7 777-77-77",
                 Role.USER));
         Image image = new Image();
-        image.setImage(Files.readAllBytes(Paths.get("user-icon.png")));
+        image.setImage(Files.readAllBytes(Paths.get("imageAd.png")));
         image.setId(user.getId().toString());
         imageRepository.save(image);
         user.setImage(image);
@@ -141,6 +139,7 @@ public class UserControllerIntegrationTests {
                         .content(newPassword.toString()))
                 .andExpect(status().isForbidden());
     }
+
     @Test
     public void setPassword_status_NotValid() throws Exception {
         addToDb();
@@ -243,11 +242,14 @@ public class UserControllerIntegrationTests {
                 "image",
                 "image.png",
                 MediaType.IMAGE_PNG_VALUE,
-                Files.readAllBytes(Paths.get("user-icon-test.png"))
+                Files.readAllBytes(Paths.get("imageAd1.png"))
         );
         MockMultipartHttpServletRequestBuilder patchMultipart = (MockMultipartHttpServletRequestBuilder)
                 MockMvcRequestBuilders.multipart("/users/me/image")
-                        .with(rq -> { rq.setMethod("PATCH"); return rq; });
+                        .with(rq -> {
+                            rq.setMethod("PATCH");
+                            return rq;
+                        });
         mockMvc.perform(patchMultipart
                         .file(file))
                 .andExpect(status().isOk());
@@ -260,11 +262,14 @@ public class UserControllerIntegrationTests {
                 "image",
                 "image.png",
                 MediaType.IMAGE_PNG_VALUE,
-                Files.readAllBytes(Paths.get("user-icon-test.png"))
+                Files.readAllBytes(Paths.get("imageAd1.png"))
         );
         MockMultipartHttpServletRequestBuilder patchMultipart = (MockMultipartHttpServletRequestBuilder)
                 MockMvcRequestBuilders.multipart("/users/me/image")
-                        .with(rq -> { rq.setMethod("PATCH"); return rq; });
+                        .with(rq -> {
+                            rq.setMethod("PATCH");
+                            return rq;
+                        });
         mockMvc.perform(patchMultipart
                         .file(file))
                 .andExpect(status().isUnauthorized());
