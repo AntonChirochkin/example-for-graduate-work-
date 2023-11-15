@@ -16,7 +16,6 @@ import com.example.exampleforgraduatework.dto.Role;
 import com.example.exampleforgraduatework.entity.Users;
 import com.example.exampleforgraduatework.repository.UsersRepository;
 import com.example.exampleforgraduatework.service.AuthService;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -115,6 +114,7 @@ public class AuthControllerIntegrationTests {
                         .content(register.toString()))
                 .andExpect(status().isBadRequest());
     }
+
     @Test
     public void register_status_isNotValid_firstname() throws Exception {
         usersRepository.deleteAll();
@@ -146,6 +146,7 @@ public class AuthControllerIntegrationTests {
                         .content(register.toString()))
                 .andExpect(status().isBadRequest());
     }
+
     @Test
     public void register_status_isNotValid_password() throws Exception {
         usersRepository.deleteAll();
@@ -161,6 +162,7 @@ public class AuthControllerIntegrationTests {
                         .content(register.toString()))
                 .andExpect(status().isBadRequest());
     }
+
     @Test
     public void register_status_isNotValid_lastname() throws Exception {
         usersRepository.deleteAll();
@@ -216,4 +218,5 @@ public class AuthControllerIntegrationTests {
                         .content(login.toString()))
                 .andExpect(status().isBadRequest());
     }
+
 }
